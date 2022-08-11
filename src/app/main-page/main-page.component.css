@@ -1,0 +1,37 @@
+.main {
+    margin: 5px;
+}
+.container {
+  width: 100%;
+  max-width: 1024px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+.card{
+    display: inline-block;
+    margin: 3px;
+}
+.example-card {
+   max-width: 275px;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+.pl_authorization {
+  float: left;
+  margin: 5px 50px 0 0;
+  padding: 0 20px 0 10px;
+  background: #6ad769;
+  height: 30px;
+  border-radius: 5px;
+  border: solid 1px #525252;
+  color: white;
+}
+
+  .pl_authorization li {
+    margin: 0 27px 0 0;
+    padding: 0;
+    display: block;
+    line-height: 30px;
+    float: left;
+  }
