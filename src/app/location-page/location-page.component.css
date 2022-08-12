@@ -1,0 +1,22 @@
+.main {
+  margin: 5px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.card {
+  display: inline-block;
+  margin: 3px;
+}
+
+.example-card {
+  max-width: 275px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
