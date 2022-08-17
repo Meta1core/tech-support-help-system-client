@@ -1,10 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons"); 
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
 html, body {
   height: 100%;
   background-image: url("assets\bg.jpg");
 }
+mat-drawer-container {
+  background-image: url("assets\bg.jpg");
+}
+.mat-drawer-backdrop.mat-drawer-shown {
+  background: none;
+}
+
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-toolbar.mat-primary {
   background: #6ad769;
@@ -12,5 +20,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 mat-icon {
   margin-right: 4px;
+}
+img{
+    cursor: pointer;
+}
+
+mat-list mat-icon {
   color: #49a148;
 }
