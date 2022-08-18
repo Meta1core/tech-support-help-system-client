@@ -22,7 +22,7 @@ import { MatInputModule } from '@angular/material/input';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtModule } from "@auth0/angular-jwt";
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 export function tokenGetter() {
   return localStorage.getItem("token");
 }
@@ -53,6 +53,7 @@ export function tokenGetter() {
     MatSelectModule,
     MatInputModule,
     HttpClientModule,
+    MatSnackBarModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter

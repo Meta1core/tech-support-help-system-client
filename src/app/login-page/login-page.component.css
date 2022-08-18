@@ -11,3 +11,7 @@ button {
   background-color: #71d76f;
   color: white;
 }
+#errorLogin {
+  font-family: "Sofia", sans-serif;
+  color: red;
+}
