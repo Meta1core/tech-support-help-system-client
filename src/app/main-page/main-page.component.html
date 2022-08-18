@@ -17,9 +17,10 @@
      <mat-label >Search by prefix</mat-label>
       <input matInput type="text" [(ngModel)]="searchPrefix" />
     </mat-form-field>
-      <button mat-button color="primary">Select</button>
+      <button mat-button color="primary" (click)="GetClient()">Select</button>
   </mat-drawer>
   <div class="main">
+    <img class="logo" width="320" height="125" [style.display] ="isClientLoaded() ? 'block' : 'none'" [src]="imageUrl" />
     <div class="container">
 
       <div class="pages">
