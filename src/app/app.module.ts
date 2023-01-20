@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +23,10 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtModule } from "@auth0/angular-jwt";
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { LocationDetailsPageComponent } from './location-details-page/location-details-page.component';
+import {MatTableModule} from '@angular/material/table';
+
 export function tokenGetter() {
   return localStorage.getItem("token");
 }
@@ -31,7 +35,8 @@ export function tokenGetter() {
     AppComponent,
     MainPageComponent,
     LocationPageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    LocationDetailsPageComponent
   ],
   imports: [
     BrowserModule,
@@ -53,14 +58,19 @@ export function tokenGetter() {
     MatSelectModule,
     MatInputModule,
     HttpClientModule,
+    MatTableModule,
     MatSnackBarModule,
+    NgxSpinnerModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter
       }
     })
   ],
+  exports: [NgxSpinnerModule],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }

@@ -3,7 +3,6 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 html, body {
-  height: 100%;
   background-image: url("assets\bg.jpg");
 }
 mat-drawer-container {
@@ -13,16 +12,18 @@ mat-drawer-container {
   background: none;
 }
 
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 .mat-toolbar.mat-primary {
   background: #6ad769;
   color: #fff;
 }
 mat-icon {
-  margin-right: 4px;
+  margin-right: 4px !important;
 }
 img{
-    cursor: pointer;
+  cursor: pointer;
 }
 
 mat-list mat-icon {

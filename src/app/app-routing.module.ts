@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LocationDetailsPageComponent } from './location-details-page/location-details-page.component';
 import { LocationPageComponent } from './location-page/location-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { MainPageComponent } from './main-page/main-page.component';
@@ -9,6 +10,7 @@ const routes: Routes = [
   { path: 'main', component: MainPageComponent, canActivate: [GuardService] },
   { path: 'location-page', component: LocationPageComponent, canActivate: [GuardService] },
   { path: 'login-page', component: LoginPageComponent },
+  { path: 'location-details-page', component: LocationDetailsPageComponent, canActivate: [GuardService] },
   {
     path: '',
     redirectTo: '/login-page',

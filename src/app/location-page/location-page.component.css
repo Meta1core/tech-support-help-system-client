@@ -3,16 +3,30 @@
 }
 .container {
   width: 100%;
-  max-width: 1024px;
+  max-width: 1300px;
   padding: 0 15px;
   margin: 0 auto;
 }
-.card{
-    display: inline-block;
-    margin: 3px;
-}
 .card {
-   max-width: 300px;
+  max-width: 300px;
+  max-height: 220px;
+  margin: 3px;
+  background-image: url("src\assets\location_phone1.png");
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: multiply;
+  color: white;
+  font-family: sans-serif;
+  display: inline-flex;
+  flex-flow: column;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+mat-card-title {
+  font-family: Fantasy;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.card-border{
+  border: 1px solid white;
 }
 .example-spacer {
   flex: 1 1 auto;
@@ -22,4 +36,30 @@
 }
 mat-label {
   text-align: center;
+}
+mat-card-content p {
+    margin: 0;
+}
+
+
+
+
+
+th.mat-header-cell{
+    text-align: center !important;
+}
+
+td:hover {
+  cursor: pointer;
+  background-color: green;
+  opacity: 0.3;
+}
+
+.demo-table {
+  width: 100%;
+}
+
+.mat-column-demo-name {
+  padding-left: 16px;
+  font-size: 20px;
 }

@@ -30,9 +30,9 @@ export class AuthenticationService {
   }
 
   public logout = () => {
-    window.location.reload();
-    localStorage.removeItem("token");
+    localStorage.clear();
     this.sendAuthStateChangeNotification(false);
+    this.router.navigate(['/login-page']);
     this._snackBar.openSnackBar("You successfully logged out!", "Ok");
   }
 

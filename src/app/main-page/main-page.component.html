@@ -1,33 +1,37 @@
 <header>
   <mat-toolbar color="primary">
-    <button mat-icon-button class="example-icon" (click)="drawer.toggle()" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span style="margin-left: 5px">Main Page</span>
-    <span class="spacer"></span>
-    <img src="assets\logo.png" routerLink="/main" width="85" height="30" />
-    <button mat-icon-button class="logout-button" (click)="logout()" aria-label="Example icon-button with menu icon">
-      <mat-icon>logout</mat-icon>
-    </button>
+    <mat-toolbar-row>
+      <button mat-icon-button class="example-icon" (click)="drawer.toggle()" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span style="margin-left: 5px">{{clientName}} ({{clientPrefix}})</span>
+      <span class="spacer"></span>
+      <img src="assets\logo.png" routerLink="/main" width="85" height="30" />
+      <button mat-icon-button class="logout-button" (click)="logout()" aria-label="Example icon-button with menu icon">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </mat-toolbar-row>
   </mat-toolbar>
 </header>
-<mat-drawer-container >
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="default" color="#6ad769" type="line-spin-fade-rotating" [fullScreen]="false"><p style="color: white">   Loading... </p></ngx-spinner>
+<mat-drawer-container>
   <mat-drawer #drawer class="sidenav" mode="over">
-    <mat-form-field >
-     <mat-label >Search by prefix</mat-label>
+    <mat-form-field>
+      <mat-label>Search by prefix</mat-label>
       <input matInput type="text" [(ngModel)]="searchPrefix" />
     </mat-form-field>
-      <button mat-button color="primary" (click)="GetClient()">Select</button>
+    <button class="button-sidebar" mat-button color="primary" (click)="getClient()">Select</button>
   </mat-drawer>
   <div class="main">
-    <img class="logo" width="320" height="125" [style.display] ="isClientLoaded() ? 'block' : 'none'" [src]="imageUrl" />
+    <img class="logo" width="150" [style.display]="isClientLoaded() ? 'block' : 'none'" [src]="imageUrl" />
     <div class="container">
-
       <div class="pages">
         <mat-list>
-          <mat-list-item routerLink="/location-page"><mat-icon>location_city</mat-icon> Location page</mat-list-item>
+          <mat-list-item (click) ="goToLocationsPage()">
+            <mat-icon>location_city</mat-icon> Location page <span class="spacer"></span>      <button mat-icon-button> <mat-icon>domain_add</mat-icon> </button>
+          </mat-list-item>
           <mat-divider></mat-divider>
-          <mat-list-item><mat-icon>collections_bookmark</mat-icon>Teaching Collection page</mat-list-item>
+          <mat-list-item><mat-icon>collections_bookmark</mat-icon>Teaching Collection page<span class="spacer"></span>      <button mat-icon-button> <mat-icon>bookmark_add</mat-icon> </button></mat-list-item>
           <mat-divider></mat-divider>
           <mat-list-item><mat-icon>settings</mat-icon>Configuration page</mat-list-item>
         </mat-list>
@@ -45,8 +49,5 @@
   </div>
 </mat-drawer-container>
 
-  <footer>
-    <div class="container">
-
-    </div>
-  </footer>
+<footer>
+</footer>

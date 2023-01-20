@@ -11,7 +11,7 @@ import { Client } from '../_interfaces/Client';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CustomSnackBar } from '../CustomSnackBar';
-
+import { NgxSpinnerService } from "ngx-spinner";
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
@@ -23,13 +23,14 @@ export class MainPageComponent implements OnInit {
   filteredOptions!: Observable<string[]>;
   showFiller = false;
   searchPrefix = "";
-  imageUrl: any;
-
   public isUserAuthenticated: boolean = false;
   public isAny: any;
-  
 
-  constructor(private authService: AuthenticationService, private router: Router, private clientService: ClientService, private _snackBar: CustomSnackBar) {
+  imageUrl: any;
+  clientName: any;
+  clientPrefix: any;
+
+  constructor(private authService: AuthenticationService, private router: Router, private clientService: ClientService, private _snackBar: CustomSnackBar, private spinner: NgxSpinnerService) {
   }
 
   ngOnInit(): void {
@@ -37,7 +38,7 @@ export class MainPageComponent implements OnInit {
       .subscribe(res => {
         this.isUserAuthenticated = res;
       });
-    this.GetLogo();
+    this.loadClient();
   }
 
   public isClientLoaded(): boolean {
@@ -49,23 +50,35 @@ export class MainPageComponent implements OnInit {
     }
   }
 
-  public GetLogo(): any{
-    this.imageUrl = localStorage.getItem("logoUrl");
+  public loadClient(): any{
+    this.imageUrl = localStorage.getItem("client_logoUrl");
+    this.clientName = localStorage.getItem("client_name");
+    this.clientPrefix = localStorage.getItem("client_prefix");
   }
 
-  public GetClient() {
-    this.clientService.getClientByPrefix('https://localhost:44365/Clients/' + this.searchPrefix)
+  public getClient() {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 3600);
+    this.clientService.getClientByPrefix('http://10.190.100.102:8080/Clients/' + this.searchPrefix)
       .subscribe({
         next: (res: Client) => {
           if (res) {
             console.log(res);
             localStorage.setItem("client_id", res.iD_Client.toString());
-            localStorage.setItem("logoUrl", res.logoUrl);
+            localStorage.setItem("client_logoUrl", res.logoUrl);
+            localStorage.setItem("client_name", res.name);
+            localStorage.setItem("client_prefix", res.prefix);
+            this.clientName = res.name;
             this.imageUrl = res.logoUrl;
+            this.clientPrefix = res.prefix;
+            this._snackBar.openSnackBar(this.clientPrefix + " client was successfully loaded!", "Ok");
           }
           else {
-            localStorage.removeItem("client_id");
+            this.clearCookie();
             this._snackBar.openSnackBar("Such client was not found!", "Ok");
+            
           }
         },
         error: (err: HttpErrorResponse) => {
@@ -74,9 +87,27 @@ export class MainPageComponent implements OnInit {
       })
   }
 
+  public clearCookie() {
+    localStorage.removeItem("client_id");
+    localStorage.removeItem("client_logoUrl");
+    localStorage.removeItem("client_name");
+    localStorage.removeItem("client_prefix");
+    this.imageUrl = "";
+    this.clientName = "";
+    this.clientPrefix = "";
+  }
+
   public logout = () => {
     this.authService.logout();
-    localStorage.clear();
-    this.router.navigate(["/login-page"]);
+    window.location.reload();
+  }
+
+  public goToLocationsPage() {
+    if (this.isClientLoaded()) {
+      this.router.navigate(['/location-page']);
+    }
+    else {
+      this._snackBar.openSnackBar("Client has not been selected!", "Ok");
+    }
   }
 }

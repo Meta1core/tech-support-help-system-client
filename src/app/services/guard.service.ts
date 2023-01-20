@@ -15,9 +15,8 @@ export class GuardService implements CanActivate {
     if (this.authService.isUserAuthenticated()) {
       return true;
     }
-
-    this.router.navigate(['/login-page']);
     this._snackBar.openSnackBar("Your authorized session is no longer active", "Ok");
+    this.router.navigate(['/login-page']);
     return false;
   }
 }

@@ -5,6 +5,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthenticationService } from '../services/authentication.service';
 import { UserLoginDto } from '../_interfaces/UserLoginDto';
 import { LoginResponseDto } from '../_interfaces/LoginResponseDto';
+import { CustomSnackBar } from '../CustomSnackBar';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -19,7 +20,7 @@ export class LoginPageComponent implements OnInit {
   });
   errorMessage: string = '';
 
-  constructor(private authService: AuthenticationService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private authService: AuthenticationService, private router: Router, private route: ActivatedRoute, private _snackBar: CustomSnackBar) { }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -37,12 +38,13 @@ export class LoginPageComponent implements OnInit {
       password: login.password
     }
 
-    this.authService.loginUser('https://localhost:44365/Authentication',userForAuth)
+    this.authService.loginUser('http://10.190.100.102:8080/Authentication',userForAuth)
       .subscribe({
         next: (res: LoginResponseDto) => {
           localStorage.setItem("token", res.token);
           this.authService.sendAuthStateChangeNotification(res.isAuthSuccessful);
           this.router.navigate([this.returnUrl]);
+          this._snackBar.openSnackBar("You successfully logged in!", "Ok");
         },
         error: (err: HttpErrorResponse) => {
           console.log(err);
