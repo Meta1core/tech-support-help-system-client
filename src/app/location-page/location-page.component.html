@@ -13,8 +13,7 @@
 </ngx-spinner>
 <div class="main">
   <div class="container">
-    <div class="card" *ngFor="let loc of locations">
-    </div>
+    <div>
       <!-- <div class="card-border">
         <mat-card class="card">
           <mat-card-subtitle>{{loc.clinicname}}</mat-card-subtitle>
@@ -32,19 +31,21 @@
           </mat-card-actions>
         </mat-card>
       </div> -->
+    </div>
       <table mat-table [dataSource]="locations" class="mat-elevation-z8 demo-table">
         <!-- Name Column -->
         <ng-container matColumnDef="demo-name">
           <th mat-header-cell *matHeaderCellDef> Locations </th>
-          <td mat-cell class="table-row-value" align="center" *matCellDef="let element"> {{element.name}} </td>
+          <td mat-cell class="table-row-value" align="center" *matCellDef="let element" (click)="getClinicData(element)"> {{element.name}} </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
-      <div class="location_data">
-        <h1>Clinic Name:</h1>
-        <span *matCellDef="let element">{{element.name}}</span>
-      </div>
+    <div class="location_data">
+      <h1>Clinic Name:</h1>
+      <div>{{currentClinic!.name}}</div>
+      <div>{{currentClinic!.phone}}</div>
+    </div>
   </div>
 </div>
 <footer>

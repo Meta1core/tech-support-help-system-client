@@ -1,3 +1,4 @@
+import { Location } from './../_interfaces/location';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 

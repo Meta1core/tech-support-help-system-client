@@ -1,3 +1,4 @@
+import { Location } from './../_interfaces/location';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -14,10 +15,13 @@ import { ClientService } from '../services/client.service';
 export class LocationPageComponent implements OnInit {
   public locations: any;
   displayedColumns: string[] = ['demo-name'];
+  
+  currentClinic: any;
 
   constructor(private locationService: LocationService, private clientService: ClientService, private _snackBar: CustomSnackBar, private router: Router, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this.currentClinic = {} as Location;;
     if (this.clientService.isClientLoaded()) {
       this.GetLocations();
     }
@@ -37,6 +41,7 @@ export class LocationPageComponent implements OnInit {
           next: (res: Location[]) => {
             if (res) {
               this.locations = res;
+              console.log(this.currentClinic = this.locations[0].name);
               console.log(this.locations);
             }
           },
@@ -45,5 +50,9 @@ export class LocationPageComponent implements OnInit {
 
           }
         })
+  }
+
+  public getClinicData(clinic: any) {
+    this.currentClinic = clinic;
   }
 }
