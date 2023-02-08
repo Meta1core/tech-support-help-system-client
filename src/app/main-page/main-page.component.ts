@@ -55,12 +55,19 @@ export class MainPageComponent implements OnInit {
     this.clientName = localStorage.getItem("client_name");
     this.clientPrefix = localStorage.getItem("client_prefix");
   }
+  
+  public searchInput(key: KeyboardEvent) {
+    if (key.charCode === 13) { 
+      this.getClient() 
+    }
+  }
+  
 
   public getClient() {
     this.spinner.show();
     setTimeout(() => {
       this.spinner.hide();
-    }, 3600);
+    }, 1500);
     this.clientService.getClientByPrefix('http://10.190.100.102:8080/Clients/' + this.searchPrefix)
       .subscribe({
         next: (res: Client) => {

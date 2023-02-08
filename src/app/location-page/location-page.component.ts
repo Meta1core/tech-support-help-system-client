@@ -31,7 +31,7 @@ export class LocationPageComponent implements OnInit {
       this.spinner.show();
       setTimeout(() => {
         this.spinner.hide();
-      }, 5000);
+      }, 1700);
     this.locationService.getLocations('http://10.190.100.102:8080/Clinics/' + localStorage.getItem("client_id"))
         .subscribe({
           next: (res: Location[]) => {

@@ -16,9 +16,9 @@
 <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="default" color="#6ad769" type="line-spin-fade-rotating" [fullScreen]="false"><p style="color: white">   Loading... </p></ngx-spinner>
 <mat-drawer-container>
   <mat-drawer #drawer class="sidenav" mode="over">
-    <mat-form-field>
+    <mat-form-field id="search_input">
       <mat-label>Search by prefix</mat-label>
-      <input matInput type="text" [(ngModel)]="searchPrefix" />
+      <input matInput type="text" [(ngModel)]="searchPrefix" (keypress)="searchInput($event)" />
     </mat-form-field>
     <button class="button-sidebar" mat-button color="primary" (click)="getClient()">Select</button>
   </mat-drawer>
