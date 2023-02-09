@@ -1,4 +1,4 @@
-import { OnInit } from '@angular/core';
+import { OnInit, HostListener, ElementRef, HostBinding, Directive, Input } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
@@ -13,7 +13,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { CustomSnackBar } from '../CustomSnackBar';
 import { NgxSpinnerService } from "ngx-spinner";
 @Component({
-  selector: 'app-main-page',
+  selector: '[app-main-page]',
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.css']
 })
@@ -29,8 +29,14 @@ export class MainPageComponent implements OnInit {
   imageUrl: any;
   clientName: any;
   clientPrefix: any;
+  
 
-  constructor(private authService: AuthenticationService, private router: Router, private clientService: ClientService, private _snackBar: CustomSnackBar, private spinner: NgxSpinnerService) {
+  constructor(private authService: AuthenticationService, private eRef: ElementRef, private router: Router, private clientService: ClientService, private _snackBar: CustomSnackBar, private spinner: NgxSpinnerService) {
+  }
+
+
+  onError() {
+    this.imageUrl = "assets/no_logo.png";
   }
 
   ngOnInit(): void {
@@ -51,6 +57,7 @@ export class MainPageComponent implements OnInit {
   }
 
   public loadClient(): any{
+    console.log(localStorage.getItem("client_logoUrl"));
     this.imageUrl = localStorage.getItem("client_logoUrl");
     this.clientName = localStorage.getItem("client_name");
     this.clientPrefix = localStorage.getItem("client_prefix");

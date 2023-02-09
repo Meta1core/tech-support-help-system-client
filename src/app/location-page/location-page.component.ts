@@ -42,7 +42,7 @@ export class LocationPageComponent implements OnInit {
             if (res) {
               this.locations = res;
               console.log(this.currentClinic = this.locations[0].name);
-              console.log(this.locations);
+              console.log(this.locations[1]);
             }
           },
           error: (err: HttpErrorResponse) => {

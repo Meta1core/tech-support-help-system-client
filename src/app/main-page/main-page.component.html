@@ -23,7 +23,7 @@
     <button class="button-sidebar" mat-button color="primary" (click)="getClient()">Select</button>
   </mat-drawer>
   <div class="main">
-    <img class="logo" width="150" [style.display]="isClientLoaded() ? 'block' : 'none'" [src]="imageUrl" />
+    <img class="logo" [style.display]="isClientLoaded() ? 'block' : 'none'" [src]="imageUrl" (error)="onError()"/>
     <div class="container">
       <div class="pages">
         <mat-list>
