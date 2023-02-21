@@ -2,7 +2,7 @@ import { Location } from './../_interfaces/location';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CustomSnackBar } from '../CustomSnackBar';
+import { CustomSnackBar } from '../customSnackBar';
 import { LocationService } from '../services/location.service';
 import { NgxSpinnerService } from "ngx-spinner";
 import { ClientService } from '../services/client.service';

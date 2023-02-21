@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
-import { CustomSnackBar } from '../CustomSnackBar';
+import { CustomSnackBar } from '../customSnackBar';
 import { AuthenticationService } from './authentication.service';
 
 @Injectable({

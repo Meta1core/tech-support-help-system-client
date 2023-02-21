@@ -3,9 +3,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthenticationService } from '../services/authentication.service';
-import { UserLoginDto } from '../_interfaces/UserLoginDto';
-import { LoginResponseDto } from '../_interfaces/LoginResponseDto';
-import { CustomSnackBar } from '../CustomSnackBar';
+import { UserLoginDto } from '../_interfaces/userLoginDto';
+import { LoginResponseDto } from '../_interfaces/loginResponseDto';
+import { CustomSnackBar } from '../customSnackBar';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',

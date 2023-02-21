@@ -10,7 +10,7 @@ import { ClientService } from '../services/client.service';
 import { Client } from '../_interfaces/Client';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { CustomSnackBar } from '../CustomSnackBar';
+import { CustomSnackBar } from '../customSnackBar';
 import { NgxSpinnerService } from "ngx-spinner";
 @Component({
   selector: '[app-main-page]',

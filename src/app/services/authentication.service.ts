@@ -1,14 +1,14 @@
 import { Inject, Injectable } from '@angular/core';
-import { UserLoginDto } from '../_interfaces/UserLoginDto';
+import { UserLoginDto } from '../_interfaces/userLoginDto';
 import { catchError } from 'rxjs/operators';
 import {HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { LoginResponseDto } from '../_interfaces/LoginResponseDto';
+import { LoginResponseDto } from '../_interfaces/loginResponseDto';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Observable } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { CustomSnackBar } from '../CustomSnackBar';
+import { CustomSnackBar } from '../customSnackBar';
 
 @Injectable({
   providedIn: 'root'
