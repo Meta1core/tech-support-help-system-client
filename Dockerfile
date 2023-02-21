@@ -8,6 +8,8 @@ COPY package*.json ./
 RUN npm ci
 # Run npm install @angular/cli
 RUN npm install -g @angular/cli
+
+RUN ng add @angular/material
 # Copy all files
 COPY . .
 # Run ng build through npm to create dist folder
