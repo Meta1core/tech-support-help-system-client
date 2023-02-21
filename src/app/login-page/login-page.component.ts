@@ -38,7 +38,7 @@ export class LoginPageComponent implements OnInit {
       password: login.password
     }
 
-    this.authService.loginUser('http://10.190.100.102:8080/Authentication',userForAuth)
+    this.authService.loginUser('http://10.190.100.102:8080/Authentication/',userForAuth)
       .subscribe({
         next: (res: LoginResponseDto) => {
           localStorage.setItem("token", res.token);
