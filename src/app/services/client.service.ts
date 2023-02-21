@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Client } from '../_interfaces/Client';
+import { Client } from '../_interfaces/client';
 import { AuthenticationService } from './authentication.service';
 import { GuardService } from './guard.service';
 

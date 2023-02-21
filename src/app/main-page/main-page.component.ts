@@ -7,7 +7,7 @@ import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.service';
 import { Router } from '@angular/router';
 import { ClientService } from '../services/client.service';
-import { Client } from '../_interfaces/Client';
+import { Client } from '../_interfaces/client';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CustomSnackBar } from '../customSnackBar';
