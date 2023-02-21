@@ -1,4 +1,4 @@
-import { OnInit, HostListener, ElementRef, HostBinding, Directive, Input } from '@angular/core';
+import { OnInit, HostListener, ElementRef, HostBinding, Directive, Input, Inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
@@ -31,7 +31,7 @@ export class MainPageComponent implements OnInit {
   clientPrefix: any;
   
 
-  constructor(private authService: AuthenticationService, private eRef: ElementRef, private router: Router, private clientService: ClientService, private _snackBar: CustomSnackBar, private spinner: NgxSpinnerService) {
+  constructor(private authService: AuthenticationService, private eRef: ElementRef, private router: Router, private clientService: ClientService, @Inject(CustomSnackBar) private _snackBar: CustomSnackBar, private spinner: NgxSpinnerService) {
   }
 
 

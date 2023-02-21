@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { UserLoginDto } from '../_interfaces/UserLoginDto';
 import { catchError } from 'rxjs/operators';
 import {HttpClient } from '@angular/common/http';
@@ -19,7 +19,7 @@ export class AuthenticationService {
   
 
 
-  constructor(private http: HttpClient, private router: Router, private jwtHelper: JwtHelperService, private _snackBar: CustomSnackBar) { }
+  constructor(private http: HttpClient, private router: Router, private jwtHelper: JwtHelperService, @Inject(CustomSnackBar) private _snackBar: CustomSnackBar) { }
 
   public sendAuthStateChangeNotification = (isAuthenticated: boolean) => {
     this.authChangeSub.next(isAuthenticated);

@@ -1,6 +1,6 @@
 import { Location } from './../_interfaces/location';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CustomSnackBar } from '../CustomSnackBar';
 import { LocationService } from '../services/location.service';
@@ -18,7 +18,7 @@ export class LocationPageComponent implements OnInit {
   
   currentClinic: any;
 
-  constructor(private locationService: LocationService, private clientService: ClientService, private _snackBar: CustomSnackBar, private router: Router, private spinner: NgxSpinnerService) { }
+  constructor(private locationService: LocationService, private clientService: ClientService, @Inject(CustomSnackBar) private _snackBar: CustomSnackBar, private router: Router, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.currentClinic = {} as Location;;

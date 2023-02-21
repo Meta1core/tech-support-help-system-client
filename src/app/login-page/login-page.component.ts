@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthenticationService } from '../services/authentication.service';
 import { UserLoginDto } from '../_interfaces/UserLoginDto';
@@ -20,7 +20,7 @@ export class LoginPageComponent implements OnInit {
   });
   errorMessage: string = '';
 
-  constructor(private authService: AuthenticationService, private router: Router, private route: ActivatedRoute, private _snackBar: CustomSnackBar) { }
+  constructor(private authService: AuthenticationService, private router: Router, private route: ActivatedRoute, @Inject(CustomSnackBar) private _snackBar: CustomSnackBar) { }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
