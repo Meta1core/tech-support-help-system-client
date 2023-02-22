@@ -61,9 +61,23 @@ mat-card-content p {
   line-height: 2em;
 }
 
+.icon {
+  width: 25px;
+  margin-left: 20px;
+}
+
+.icon:hover {
+  background-color: #6ad76963;
+}
+
+::ng-deep .mat-form-field-wrapper{
+  margin-bottom: -1.25em;
+}
 
 
-
+mat-form-field {
+  width: 70%;
+}
 
 th.mat-header-cell{
     text-align: center;

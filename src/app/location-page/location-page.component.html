@@ -44,23 +44,30 @@
         <h1>Clinic Data:</h1>
         <div class="clinic_data_item">
           <span>Clinic Name: </span>
-          <span>{{currentClinic.name}}</span>
+          <mat-form-field>
+            <input matInput class="clinic-info_field" readonly name="username" value="{{currentClinic.name}}" required>
+          </mat-form-field>
+          <span><img src="assets/edit-icon.svg" class="icon" alt="Edit this info"></span>
         </div>
         <div class="clinic_data_item">
           <span>Clinic Address: </span>
           <span>{{currentClinic.addressLine}}</span>
+          <span><img src="assets/edit-icon.svg" class="icon" alt="Edit this info"></span>
         </div>
         <div class="clinic_data_item">
           <span>Clinic Phone: </span>
           <span>{{currentClinic.phone}}</span>
+          <span><img src="assets/edit-icon.svg" class="icon" alt="Edit this info"></span>
         </div>
         <div class="clinic_data_item">
           <span>Clinic Fax: </span>
           <span>{{currentClinic.fax}}</span>
+          <span><img src="assets/edit-icon.svg" class="icon" alt="Edit this info"></span>
         </div>
         <div class="clinic_data_item">
           <span>Clinic TimeZone: </span>
           <span>{{currentClinic.timeZone}}</span>
+          <span><img src="assets/edit-icon.svg" class="icon" alt="Edit this info"></span>
         </div>
     </div>
   </div>
