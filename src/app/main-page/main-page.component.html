@@ -2,9 +2,10 @@
   <mat-toolbar color="primary">
     <mat-toolbar-row>
       <button mat-icon-button class="example-icon" (click)="drawer.toggle()" aria-label="Example icon-button with menu icon">
-        <mat-icon>menu</mat-icon>
+        <mat-icon>manage_search</mat-icon>
       </button>
-      <span style="margin-left: 5px">{{clientName}} ({{clientPrefix}})</span>
+      <span class="spacer"></span>
+      <span class="client-info" style="color: darkslategrey; margin-left: 100px">{{clientName}} ({{clientPrefix}})</span>
       <span class="spacer"></span>
       <img src="assets\logo.png" routerLink="/main" width="85" height="30" />
       <button mat-icon-button class="logout-button" (click)="logout()" aria-label="Example icon-button with menu icon">

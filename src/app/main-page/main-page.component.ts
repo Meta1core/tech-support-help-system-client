@@ -75,7 +75,7 @@ export class MainPageComponent implements OnInit {
     setTimeout(() => {
       this.spinner.hide();
     }, 1500);
-    this.clientService.getClientByPrefix('http://10.190.100.102:8080/Clients/' + this.searchPrefix)
+    this.clientService.getClientByPrefix('https://localhost:44365/Clients/' + this.searchPrefix)
       .subscribe({
         next: (res: Client) => {
           if (res) {
