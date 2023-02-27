@@ -1,0 +1,69 @@
+.main {
+  margin: 5px;
+  background-color: gainsboro;
+}
+
+.container {
+  width: 50%;
+  max-width: 1240px;
+  padding: 0 15px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: space-between;
+  justify-content: flex-start;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.location_data {
+  margin: 0 20px;
+  background: white;
+  flex: 1;
+  position: sticky;
+  top: 20px;
+  height: 450px;
+  width: 100%;
+  padding: 10px;
+}
+
+.clinic_data_item {
+  font-size: 1.4em;
+  line-height: 2em;
+}
+
+
+::ng-deep .mat-form-field-wrapper {
+  margin-bottom: -1.25em;
+}
+
+mat-form-field {
+  width: 70%;
+}
+
+th.mat-header-cell {
+  text-align: center;
+}
+
+td:hover {
+  cursor: pointer;
+  background-color: green;
+  opacity: 0.3;
+}
+
+.demo-table {
+  width: 30%;
+}
+.correspondence-item {
+  margin: 30px;
+}
+.correspondence-items {
+  margin: auto;
+  width: 20%;
+}

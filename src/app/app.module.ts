@@ -26,7 +26,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { LocationDetailsPageComponent } from './location-details-page/location-details-page.component';
 import {MatTableModule} from '@angular/material/table';
-
+import { ConfigurationPageComponent } from './configuration-page/configuration-page.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 export function tokenGetter() {
   return localStorage.getItem("token");
 }
@@ -36,7 +38,8 @@ export function tokenGetter() {
     MainPageComponent,
     LocationPageComponent,
     LoginPageComponent,
-    LocationDetailsPageComponent
+    LocationDetailsPageComponent,
+    ConfigurationPageComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +64,8 @@ export function tokenGetter() {
     MatTableModule,
     MatSnackBarModule,
     NgxSpinnerModule,
+    MatSlideToggleModule,
+    MatTabsModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter

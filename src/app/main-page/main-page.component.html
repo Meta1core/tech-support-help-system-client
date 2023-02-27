@@ -28,13 +28,13 @@
     <div class="container">
       <div class="pages">
         <mat-list>
-          <mat-list-item (click) ="goToLocationsPage()">
+          <mat-list-item (click)="goToLocationsPage()">
             <mat-icon>location_city</mat-icon> Location page <span class="spacer"></span>      <button mat-icon-button> <mat-icon>domain_add</mat-icon> </button>
           </mat-list-item>
           <mat-divider></mat-divider>
-          <mat-list-item><mat-icon>collections_bookmark</mat-icon>Teaching Collection page<span class="spacer"></span>      <button mat-icon-button> <mat-icon>bookmark_add</mat-icon> </button></mat-list-item>
+          <mat-list-item (click)="goToConfigurationPage()"><mat-icon>settings</mat-icon>Configuration page</mat-list-item>
           <mat-divider></mat-divider>
-          <mat-list-item><mat-icon>settings</mat-icon>Configuration page</mat-list-item>
+          <mat-list-item><mat-icon>collections_bookmark</mat-icon>Teaching Collection page<span class="spacer"></span>      <button mat-icon-button> <mat-icon>bookmark_add</mat-icon> </button></mat-list-item>
         </mat-list>
       </div>
       <div class="features">

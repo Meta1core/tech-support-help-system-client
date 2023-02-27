@@ -124,4 +124,13 @@ export class MainPageComponent implements OnInit {
       this._snackBar.openSnackBar("Client has not been selected!", "Ok");
     }
   }
+
+  public goToConfigurationPage() {
+    if (this.isClientLoaded()) {
+      this.router.navigate(['/configuration-page']);
+    }
+    else {
+      this._snackBar.openSnackBar("Client has not been selected!", "Ok");
+    }
+  }
 }
